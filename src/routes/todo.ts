@@ -18,8 +18,8 @@ router.post(
     try {
       const userDTO = req.body;
 
-      const TodoServiceInstance = Container.get(TodoService);
-      const { id, title, done } = await TodoServiceInstance.createTodoItem(
+      const todoServiceInstance = Container.get(TodoService);
+      const { id, title, done } = await todoServiceInstance.createTodoItem(
         userDTO
       );
 

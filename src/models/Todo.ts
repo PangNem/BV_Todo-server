@@ -9,8 +9,8 @@ class Todo extends Model {
 
 Todo.init(
   {
-    nickname: {
-      type: DataTypes.STRING(20)
+    title: {
+      type: DataTypes.STRING(30)
     }
   },
   {

@@ -2,11 +2,11 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 type Config = {
-  username: string,
-  password: string,
-  database: string,
-  host: string,
-  [key: string]: string
+  username: string;
+  password: string;
+  database: string;
+  host: string;
+  [key: string]: string;
 };
 
 interface IConfigGroup {
@@ -16,26 +16,26 @@ interface IConfigGroup {
 }
 
 const config: IConfigGroup = {
-  'development': {
-    'username': 'root',
-    'password': process.env.DB_PASSWORD!,
-    'database': 'database_development',
-    'host': '127.0.0.1',
-    'dialect': 'mysql'
+  development: {
+    username: 'root',
+    password: process.env.DB_PASSWORD!,
+    database: 'vue_todo_development',
+    host: '127.0.0.1',
+    dialect: 'mysql'
   },
-  'test': {
-    'username': 'root',
-    'password': process.env.DB_PASSWORD!,
-    'database': 'database_test',
-    'host': '127.0.0.1',
-    'dialect': 'mysql'
+  test: {
+    username: 'root',
+    password: process.env.DB_PASSWORD!,
+    database: 'vue_todo_test',
+    host: '127.0.0.1',
+    dialect: 'mysql'
   },
-  'production': {
-    'username': 'root',
-    'password': process.env.DB_PASSWORD!,
-    'database': 'database_production',
-    'host': '127.0.0.1',
-    'dialect': 'mysql'
+  production: {
+    username: 'root',
+    password: process.env.DB_PASSWORD!,
+    database: 'vue_todo_production',
+    host: '127.0.0.1',
+    dialect: 'mysql'
   }
 };
 
