@@ -40,4 +40,16 @@ describe('user test', () => {
       });
     });
   });
+
+  describe('GET /todo', () => {
+    const url = '/todo';
+
+    describe('할일 목록 불러오기 성공 시', () => {
+      test('목록 반환', async () => {
+        const response = await request(app).get(url);
+
+        expect(response.status).toBe(200);
+      });
+    });
+  });
 });
