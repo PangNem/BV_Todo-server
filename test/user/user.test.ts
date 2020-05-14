@@ -1,7 +1,7 @@
 import * as request from 'supertest';
 import app from '../../src/app';
 import sequelize from '../../src/models/sequelize';
-import User from '../../src/models/User';
+import User from '../../src/models/Todo';
 
 describe('user test', () => {
   let testUserId: number;
