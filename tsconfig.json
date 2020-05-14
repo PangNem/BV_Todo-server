@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "lib": ["es2015", "es2016", "es2017", "es2018", "es2019"],
+    "module": "commonjs",
+    "target": "es6",
+    "moduleResolution": "node",
+    "outDir": "dist",
+    "strictNullChecks": true
+  },
+  "include": ["src/**/*"]
+}

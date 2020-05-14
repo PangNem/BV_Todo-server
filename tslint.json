@@ -1,0 +1,9 @@
+{
+  "extends": "tslint-config-standard",
+  "rules": {
+    "semicolon": [true, "always"],
+    "no-empty": [true, "allow-empty-catch", "allow-empty-functions"],
+    "await-promise": [true, "Bluebird"],
+    "strict-type-predicates": false
+  }
+}
