@@ -41,7 +41,9 @@ router.get('/', async (req, res, next) => {
   try {
     const todoServiceInstance = Container.get(TodoService);
     const todoItems = await todoServiceInstance.readTodoItems();
-    return res.status(200).json(todoItems);
+    return res.status(200).json({
+      data: todoItems
+    });
   } catch (error) {
     logger.error(error);
     return next(error);
