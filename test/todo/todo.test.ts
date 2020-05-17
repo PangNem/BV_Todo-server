@@ -3,16 +3,13 @@ import app from '../../src/app';
 import sequelize from '../../src/models/sequelize';
 import Todo from '../../src/models/Todo';
 
-describe('user test', () => {
-  let testTodoItemId: number;
+let testTodoItemId: number;
 
+describe('todo test', () => {
   const testData = { title: '할일1' };
 
   beforeAll(async (done) => {
     await sequelize.sync();
-    const testTodoItem = await Todo.create({ testData });
-
-    testTodoItemId = testTodoItem.id;
     done();
   });
 
@@ -27,6 +24,7 @@ describe('user test', () => {
     describe('유저 생성 성공시', () => {
       test('유저 닉네임 반환', async () => {
         const response = await request(app).post(url).send(testData);
+        testTodoItemId = parseInt(response.body.data.id, 10);
 
         expect(response.status).toBe(201);
         expect(response.body.data.title).toBe('할일1');
@@ -49,6 +47,19 @@ describe('user test', () => {
         const response = await request(app).get(url);
 
         expect(response.status).toBe(200);
+      });
+    });
+  });
+
+  describe('GET /todo/:id', () => {
+    const url = '/todo/' + testTodoItemId;
+
+    describe('할일 불러오기 성공 시', () => {
+      test('할일 반환', async () => {
+        const response = await request(app).get(url);
+
+        expect(response.status).toBe(200);
+        expect(response.body.data.id).toBe(testTodoItemId);
       });
     });
   });
