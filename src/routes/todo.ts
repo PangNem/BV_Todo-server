@@ -37,12 +37,27 @@ router.post(
   }
 );
 
-router.get('/', async (req, res, next) => {
+router.get('/', async (_req, res, next) => {
   try {
     const todoServiceInstance = Container.get(TodoService);
     const todoItems = await todoServiceInstance.readTodoItems();
     return res.status(200).json({
       data: todoItems
+    });
+  } catch (error) {
+    logger.error(error);
+    return next(error);
+  }
+});
+
+router.get('/:id', async (req, res, next) => {
+  try {
+    const id: number = parseInt(req.params.id, 10);
+
+    const todoServiceInstance = Container.get(TodoService);
+    const todoItem = await todoServiceInstance.readTodoItem(id);
+    return res.status(200).json({
+      data: todoItem
     });
   } catch (error) {
     logger.error(error);

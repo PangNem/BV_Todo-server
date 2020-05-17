@@ -8,4 +8,8 @@ export default class TodoService {
   readTodoItems () {
     return TodoModel.findAll();
   }
+
+  readTodoItem (id: number) {
+    return TodoModel.findByPk(id);
+  }
 }
